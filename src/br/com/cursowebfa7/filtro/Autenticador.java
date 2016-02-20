@@ -23,19 +23,26 @@ public class Autenticador  implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-
-		//TODO implementar logica de autenticação.
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpSession session = httpRequest.getSession();
 		
-		String requesrUrl = httpRequest.toString();
-		chain.doFilter(request, response);
+		String requesrUrl = httpRequest.getRequestURI();
+		
+		if(requesrUrl.endsWith("login.xhtml")
+				|| requesrUrl.endsWith("cadastroUsuario.xhtml")
+				|| requesrUrl.endsWith("jsf.js.xhtml")
+				|| "true".equals(session.getAttribute("logged"))) {
+			chain.doFilter(request, response);
+		} else {
+			session.setAttribute("resposta", "Você precisa estar logado");
+			HttpServletResponse httpResponse = (HttpServletResponse) response;
+			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.xhtml");
+		}
 	}
 	
 
-	@Override
-	
+	@Override	
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 		
