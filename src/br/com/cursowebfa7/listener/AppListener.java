@@ -2,6 +2,7 @@ package br.com.cursowebfa7.listener;
 
 import java.util.HashMap;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextAttributeEvent;
 import javax.servlet.ServletContextAttributeListener;
 import javax.servlet.ServletContextEvent;
@@ -55,8 +56,10 @@ public class AppListener implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent servlet)  { 
-    	servlet.getServletContext()
-    			.setAttribute("usuariosMap", new HashMap<String, Usuario>());
+    	ServletContext context = servlet.getServletContext();
+    	context.setAttribute("usuariosMap", new HashMap<String, Usuario>());
+    	context.setAttribute("contaAcessos", new HashMap<String, Integer>());
+    			
     }
 	
 }

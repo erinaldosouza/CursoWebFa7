@@ -32,6 +32,7 @@ public class Autenticador  implements Filter {
 		if(requesrUrl.endsWith("login.xhtml")
 				|| requesrUrl.endsWith("cadastroUsuario.xhtml")
 				|| requesrUrl.endsWith("jsf.js.xhtml")
+				|| requesrUrl.endsWith("contador.jsp") //TODO retirar contador depois que implementar o login
 				|| "true".equals(session.getAttribute("logged"))) {
 			chain.doFilter(request, response);
 		} else {
