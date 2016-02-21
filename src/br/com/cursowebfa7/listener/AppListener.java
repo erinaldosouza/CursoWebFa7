@@ -59,7 +59,6 @@ public class AppListener implements ServletContextListener {
     	ServletContext context = servlet.getServletContext();
     	context.setAttribute("usuariosMap", new HashMap<String, Usuario>());
     	context.setAttribute("contaAcessos", new HashMap<String, Integer>());
-    			
     }
 	
 }

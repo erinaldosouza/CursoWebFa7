@@ -35,10 +35,12 @@ public class Autenticador  implements Filter {
 				|| requesrUrl.endsWith("contador.jsp") //TODO retirar contador depois que implementar o login
 				|| "true".equals(session.getAttribute("logged"))) {
 			chain.doFilter(request, response);
+
 		} else {
 			session.setAttribute("resposta", "Você precisa estar logado");
 			HttpServletResponse httpResponse = (HttpServletResponse) response;
 			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.xhtml");
+			System.out.println("Usuário tentou acessar página restrita!");
 		}
 	}
 	
