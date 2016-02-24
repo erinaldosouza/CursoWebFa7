@@ -9,15 +9,15 @@
 
 <h:body>
 	<h:form>
-		<h:outputLabel value="#{msg['login']}"/>
-		<h:inputText />
+		<h:outputLabel value="#{msg['cpf']}"/>
+		<h:inputText value="#{usuarioBean.usuario.cpf}"/>
 		
 		<br /> <br />
 		<h:outputLabel value="#{msg['senha']}"/>
-		<h:inputSecret/>
+		<h:inputSecret value="#{usuarioBean.usuario.senha}"/>
 		
 		<br /> <br />
-		<h:commandLink action="cadastroUsuario" value="#{msg['salvar']}"/>
+		<h:commandButton action="#{usuarioBean.login}" value="#{msg['salvar']}"/>
 	</h:form>
 
 </h:body>

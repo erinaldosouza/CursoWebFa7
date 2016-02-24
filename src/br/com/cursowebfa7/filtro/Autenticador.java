@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.cursowebfa7.managedbean.SessionBean;
+
 @WebFilter("/*")
 public class Autenticador  implements Filter {
 
@@ -26,6 +28,7 @@ public class Autenticador  implements Filter {
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpSession session = httpRequest.getSession();
+		SessionBean sessionBean = (SessionBean) session.getAttribute("sessionBean");
 		
 		String requesrUrl = httpRequest.getRequestURI();
 		
@@ -33,7 +36,7 @@ public class Autenticador  implements Filter {
 				|| requesrUrl.endsWith("cadastroUsuario.xhtml")
 				|| requesrUrl.endsWith("jsf.js.xhtml")
 				|| requesrUrl.endsWith("contador.jsp") //TODO retirar contador depois que implementar o login
-				|| "true".equals(session.getAttribute("logged"))) {
+				|| (sessionBean != null && sessionBean.getIsLogged())) {
 			chain.doFilter(request, response);
 
 		} else {

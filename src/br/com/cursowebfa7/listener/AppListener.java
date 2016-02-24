@@ -1,6 +1,7 @@
 package br.com.cursowebfa7.listener;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextAttributeEvent;
@@ -17,6 +18,8 @@ import br.com.cursowebfa7.model.Usuario;
  */
 @WebListener
 public class AppListener implements ServletContextListener {
+	public final static Map<String, Usuario> usuariosMap  = new HashMap<String, Usuario>();
+	public final static Map<String, Integer> contaAcessos = new HashMap<String, Integer>();
 	
 	/**
      * Default constructor. 
@@ -57,8 +60,15 @@ public class AppListener implements ServletContextListener {
      */
     public void contextInitialized(ServletContextEvent servlet)  { 
     	ServletContext context = servlet.getServletContext();
-    	context.setAttribute("usuariosMap", new HashMap<String, Usuario>());
-    	context.setAttribute("contaAcessos", new HashMap<String, Integer>());
+    	configUsuarios();
+    	context.setAttribute("usuariosMap", usuariosMap);
+    	context.setAttribute("contaAcessos", contaAcessos);
     }
+
+	private void configUsuarios() {
+		usuariosMap.put("123", new Usuario("123", "321", "Usurio1"));
+		usuariosMap.put("123", new Usuario("456", "654", "Usurio2"));
+		usuariosMap.put("123", new Usuario("789", "987", "Usurio3"));
+	}
 	
 }
