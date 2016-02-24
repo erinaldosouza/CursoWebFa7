@@ -66,9 +66,9 @@ public class AppListener implements ServletContextListener {
     }
 
 	private void configUsuarios() {
-		usuariosMap.put("123", new Usuario("123", "321", "Usurio1"));
-		usuariosMap.put("123", new Usuario("456", "654", "Usurio2"));
-		usuariosMap.put("123", new Usuario("789", "987", "Usurio3"));
+		usuariosMap.put("123321", new Usuario("123", "321", "Usurio1"));
+		usuariosMap.put("456654", new Usuario("456", "654", "Usurio2"));
+		usuariosMap.put("789987", new Usuario("789", "987", "Usurio3"));
 	}
 	
 }

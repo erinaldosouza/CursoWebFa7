@@ -19,7 +19,7 @@
 			
 			<br /> <br />
 			<h:outputLabel value="#{msg['senha']}"/>
-			<h:inputSecret />
+			<h:inputSecret value="#{usuarioBean.usuario.senha}"/>
 			
 			<br /> <br />
 			<h:commandButton action="#{usuarioBean.login}" value="#{msg['entrar']}"/>

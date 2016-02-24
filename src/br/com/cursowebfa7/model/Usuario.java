@@ -37,4 +37,8 @@ public class Usuario {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}	
+	
+	public String getDadosAcesso() {
+		return cpf+senha;
+	}
 }
