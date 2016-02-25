@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<h:outputLabel value="#{msg['lista.usuario']}"/>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:dataTable value="#{usuarioBean.lista}" var="usuario" border="1" cellpadding="2" cellspacing="0">
+			<h:column>
+				<h:commandLink action="editarUsuario">
+						<f:facet name="header">
+							<h:outputText  value="#{msg['cpf']}"/>
+						</f:facet>
+						<h:outputText value="#{usuario.cpf}"/>
+						<f:setPropertyActionListener value="#{usuario}" target="#{usuarioBean.usuario}"/>
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['usuario.nome']}"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{usuario.nome}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['usuario.email']}"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{usuario.email}"/>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['usuario.dataNascimento']}"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{usuario.dataNascimento}"/>
+			</h:column>
+			<h:column>
+				<h:commandButton action="#{usuarioBean.excluir}" value="#{msg['excluir']}">
+						<f:facet name="header">
+							<h:outputText  value="#{msg['excluir']}"/>
+						</f:facet>
+						<h:outputText  value=""/>
+						<f:setPropertyActionListener value="#{usuario}" target="#{usuarioBean.usuario}"/>
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+		
+		<br /> <br />
+		<h:commandButton action="#{usuarioBean.login}" value="#{msg['novo']}"/>
+		<h:commandButton action="index?faces-redirect=true" value="#{msg['voltar']}"/>
+	</h:form>
+
+</h:body>
+
+
+</h:html>

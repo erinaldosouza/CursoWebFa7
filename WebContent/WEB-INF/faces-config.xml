@@ -16,13 +16,4 @@
     		<default-locale>pt_BR</default-locale>
     	</locale-config>
     </application>
-    
-    <navigation-rule>
-    	<from-view-id>*</from-view-id>
-    	<navigation-case>
-    		<from-outcome>index</from-outcome>
-    		<to-view-id>index</to-view-id>
-    		<redirect/>
-    	</navigation-case>
-    </navigation-rule>
 </faces-config>

@@ -35,7 +35,6 @@ public class Autenticador  implements Filter {
 		if(requesrUrl.endsWith("login.xhtml")
 				|| requesrUrl.endsWith("cadastroUsuario.xhtml")
 				|| requesrUrl.endsWith("jsf.js.xhtml")
-				|| requesrUrl.endsWith("contador.jsp") //TODO retirar contador depois que implementar o login
 				|| (sessionBean != null && sessionBean.getIsLogged())) {
 			chain.doFilter(request, response);
 
@@ -43,7 +42,7 @@ public class Autenticador  implements Filter {
 			session.setAttribute("resposta", "Você precisa estar logado");
 			HttpServletResponse httpResponse = (HttpServletResponse) response;
 			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login.xhtml");
-			System.out.println("Usuário tentou acessar página restrita!");
+			System.err.println("Usuário tentou acessar página restrita!");
 		}
 	}
 	

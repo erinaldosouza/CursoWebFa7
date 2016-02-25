@@ -1,14 +1,20 @@
 package br.com.cursowebfa7.model;
 
+import java.util.Date;
+
 public class Usuario {
 	private String cpf;
 	private String senha;
 	private String nome;
+	private String email;
+	private Date dataNascimento;
 	
-	public Usuario(String cpf, String senha, String nome) {
+	public Usuario(String cpf, String senha, String nome, String email, Date dataNascimento) {
 		this.cpf = cpf;
 		this.senha = senha;
 		this.nome = nome;
+		this.email = email;
+		this.dataNascimento = dataNascimento;
 	}
 
 	public Usuario() {
@@ -16,6 +22,22 @@ public class Usuario {
 
 	public String getNome() {
 		return nome;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public void setNome(String nome) {

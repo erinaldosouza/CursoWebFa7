@@ -1,5 +1,7 @@
 package br.com.cursowebfa7.managedbean;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -22,9 +24,15 @@ public class UsuarioBean {
 	@ManagedProperty(value="#{usuarioBusiness}")
 	private UsuarioBusiness usuarioBusiness;
 	
+
+	/**
+	 * realiza o login do usuário
+	 * @author erinaldo.souza
+	 * 
+	 * @return usuário
+	 */
 	public String login() {
 		String page = "index";
-		
 		
 		try {
 			usuario = usuarioBusiness.login(usuario.getDadosAcesso());
@@ -45,6 +53,15 @@ public class UsuarioBean {
 		return page;
 	}
 
+	public String excluir() {
+		usuarioBusiness.excluir(usuario);
+		return null;
+	}
+	
+	public List<Usuario> getLista() {
+		return usuarioBusiness.getLista();
+	}
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
