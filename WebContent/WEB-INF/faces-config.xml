@@ -6,6 +6,7 @@
     version="2.2">
     
     <application>
+    	<message-bundle>javax.faces.FacesMessages</message-bundle>
     	<resource-bundle>
     		<base-name>mensagens</base-name>
     		<var>msg</var>

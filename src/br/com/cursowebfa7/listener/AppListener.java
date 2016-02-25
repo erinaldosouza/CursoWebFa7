@@ -65,6 +65,11 @@ public class AppListener implements ServletContextListener {
     	context.setAttribute("contaAcessos", contaAcessos);
     }
 
+    /**
+     * Carrega os usuários do "banco" em um objeto global acessivel por todo o sistema.
+     * @author erinaldo.souza
+     * 
+     */
 	private void configUsuarios() {
 		usuariosMap.put("123321", new Usuario("123", "321", "Usurio1"));
 		usuariosMap.put("456654", new Usuario("456", "654", "Usurio2"));

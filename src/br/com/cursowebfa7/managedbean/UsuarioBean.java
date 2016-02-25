@@ -1,11 +1,14 @@
 package br.com.cursowebfa7.managedbean;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.cursowebfa7.model.Usuario;
 import br.com.cursowebfaz.business.UsuarioBusiness;
+import br.com.cursowebfaz.exception.UsuarioInvalidoException;
 
 @ManagedBean
 @RequestScoped
@@ -19,17 +22,24 @@ public class UsuarioBean {
 	@ManagedProperty(value="#{usuarioBusiness}")
 	private UsuarioBusiness usuarioBusiness;
 	
-	private String mensagens;
-	
 	public String login() {
 		String page = "index";
-		usuario = usuarioBusiness.login(usuario.getDadosAcesso());
-		if(usuario == null) {
-			page = "login";
-			mensagens = "dados.acesso.invalidos";
-		} else {
-			mensagens = "bem.vindo";
+		
+		
+		try {
+			usuario = usuarioBusiness.login(usuario.getDadosAcesso());
 			sessionBean.setIsLogged(true);
+		
+		} catch (UsuarioInvalidoException e) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			String text  = context.getApplication()
+					       .evaluateExpressionGet(context, "#{msg['" + e.getMessage() +"']}", String.class);
+
+			FacesMessage mensagem = new FacesMessage();
+			mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
+			mensagem.setSummary(text);
+			context.addMessage(null, mensagem);
+			page = null;
 		}
 		
 		return page;
@@ -41,14 +51,6 @@ public class UsuarioBean {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public String getMensagens() {
-		return mensagens;
-	}
-
-	public void setMensagens(String mensagens) {
-		this.mensagens = mensagens;
 	}
 
 	public SessionBean getSessionBean() {

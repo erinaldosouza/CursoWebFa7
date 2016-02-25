@@ -6,6 +6,7 @@ import javax.faces.bean.RequestScoped;
 
 import br.com.cursowebfa7.filtro.UsuarioDao;
 import br.com.cursowebfa7.model.Usuario;
+import br.com.cursowebfaz.exception.UsuarioInvalidoException;
 
 @ManagedBean
 @RequestScoped
@@ -14,8 +15,16 @@ public class UsuarioBusiness {
 	@ManagedProperty(value="#{usuarioDao}")
 	UsuarioDao usuarioDao;
 	
-	public Usuario login(String acesso) {
-		return usuarioDao.login(acesso);
+	Usuario usuario;
+	
+	public Usuario login(String acesso) throws UsuarioInvalidoException {
+		usuario = usuarioDao.login(acesso);
+		
+		if(usuario == null) {
+			throw new UsuarioInvalidoException("dados.acesso.invalido");
+		}
+		
+		return usuario;
 	}
 
 	public UsuarioDao getUsuarioDao() {

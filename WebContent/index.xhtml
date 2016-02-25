@@ -7,10 +7,10 @@
 	<h:outputLabel value="#{msg['index']}"/>
 </h:head>
 	<h:body>
+		<h:messages />
+		<br />
 		<h:form>
 			<h:commandLink action="listaUsuarios?faces-redirect=true" value="#{msg['lista.usuario']}"/>
-			<br/>
-			<h:commandLink action="cadastroUsuario?faces-redirect=true" value="#{msg['cadastra.usuario']}"/>
 		</h:form>
 	</h:body>
 </h:html>

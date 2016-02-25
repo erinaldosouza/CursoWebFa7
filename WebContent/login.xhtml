@@ -8,18 +8,16 @@
 </h:head>
 	<h:body>
 		<br />
-		<h:outputFormat rendered="#{usuarioBean.mensagens ne null}" value="#{msg[usuarioBean.mensagens]}">
-			<f:param value="#{usuarioBean.usuario.nome}"/>
-		</h:outputFormat>
+		<h:messages />
 		<br />
 		
 		<h:form>
-			<h:outputLabel value="#{msg['cpf']}"/>
-			<h:inputText value="#{usuarioBean.usuario.cpf}"/>
-			
+			<h:outputLabel for="uCpf" value="#{msg['cpf']}"/>
+			<h:inputText id="uCpf" value="#{usuarioBean.usuario.cpf}"/>
+
 			<br /> <br />
-			<h:outputLabel value="#{msg['senha']}"/>
-			<h:inputSecret value="#{usuarioBean.usuario.senha}"/>
+			<h:outputLabel for="uSenha" value="#{msg['senha']}"/>
+			<h:inputSecret id="uSenha" value="#{usuarioBean.usuario.senha}"/>
 			
 			<br /> <br />
 			<h:commandButton action="#{usuarioBean.login}" value="#{msg['entrar']}"/>
