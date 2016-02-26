@@ -16,7 +16,7 @@ public class CepConverter implements Converter {
 	public Object getAsObject(FacesContext contex, UIComponent arg1, String str) {
 		String cepArr[] = null;
 		try {
-			new Long(str.replace("\\D", ""));
+			new Long(str.replaceAll("\\D", ""));
 			cepArr = str.split("-");
 		
 		} catch(NumberFormatException | ArrayIndexOutOfBoundsException e) {

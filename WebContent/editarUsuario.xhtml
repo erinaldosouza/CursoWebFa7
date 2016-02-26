@@ -4,13 +4,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title><h:outputText
-			value="#{msg['usuario.editar']}" /></title>
+	<title><h:outputText	value="#{msg['usuario.editar']}" /></title>
 </h:head>
 <h:body>
 	<h:form id="usuarioForm">
-			<h:inputHidden value="#{usuarioBean.usuario.cpf}" />
-			<h:inputHidden value="#{usuarioBean.usuario.nome}" />
+		<h:messages globalOnly="true" errorClass="error"/>
+		<h:inputHidden value="#{usuarioBean.usuario.cpf}" />
+		<h:inputHidden value="#{usuarioBean.usuario.nome}" />
 			
 		<h:panelGrid columns="2">
 			<h:panelGroup>
@@ -44,10 +44,8 @@
 			</h:panelGroup>
 			<br/>
 			<h:panelGroup>
-			<h:outputLabel for="senhaInput"	value="#{msg['page.usuarios.label.senha']}:" />
-			<h:inputSecret id="senhaInput" value="#{usuarioBean.usuario.senha}" required="true">
-				  <f:validateLength minimum="6" maximum="10"/> 
-			</h:inputSecret>
+				<h:outputLabel for="senhaInput"	value="#{msg['page.usuarios.label.senha']}:" />
+				<h:inputSecret id="senhaInput" value="#{usuarioBean.usuario.senha}"/>
 			</h:panelGroup>
 		</h:panelGrid>
 		<hr />
