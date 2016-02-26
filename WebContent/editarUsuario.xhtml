@@ -5,7 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title><h:outputText
-			value="#{msg['page.usuariosEditar.title']}" /></title>
+			value="#{msg['usuario.editar']}" /></title>
 </h:head>
 <h:body>
 	<h:form id="usuarioForm">
@@ -13,24 +13,42 @@
 			<h:inputHidden value="#{usuarioBean.usuario.nome}" />
 			
 		<h:panelGrid columns="2">
-			<h:outputLabel for="cpfInput" value="#{msg['cpf']}:" />
-			<h:inputText id="cpfInput" value="#{usuarioBean.usuario.cpf}"  readonly="#{facesContext.renderResponse}"/>
-						
-			<h:outputLabel for="nome" value="#{msg['nome']}:" />
-			<h:inputText id="nome" value="#{usuarioBean.usuario.nome}" readonly="#{facesContext.renderResponse}"/>
-			
-			<h:outputLabel for="data" value="#{msg['data.nascimento']}:" />
-			<h:inputText id="data" value="#{usuarioBean.usuario.dataNascimento}" >
-				<f:convertDateTime pattern="dd/MM/yyyy"/>
+			<h:panelGroup>
+				<h:outputLabel for="cpfInput" value="#{msg['cpf']}:" />
+				<h:inputText id="cpfInput" value="#{usuarioBean.usuario.cpf}"  readonly="#{facesContext.renderResponse}"/>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>
+				<h:outputLabel for="nome" value="#{msg['nome']}:" />
+				<h:inputText id="nome" value="#{usuarioBean.usuario.nome}" readonly="#{facesContext.renderResponse}"/>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>			
+				<h:outputLabel for="data" value="#{msg['data.nascimento']}:" />
+				<h:inputText id="data" value="#{usuarioBean.usuario.dataNascimento}" >
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:inputText>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>
+			<h:outputLabel for="cep"  value="#{msg['usuario.cep']}:" />
+			<h:inputText id="cep" value="#{usuarioBean.usuario.cep}">
+					<f:converter converterId="cep.converter"/>
 			</h:inputText>
-			
-			<h:outputLabel for="emailInput"  value="#{msg['page.usuarios.label.email']}:" />
-			<h:inputText id="emailInput" value="#{usuarioBean.usuario.email}" />
-			
+			<h:message for="cep" errorClass="error"/>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>
+				<h:outputLabel for="emailInput"  value="#{msg['page.usuarios.label.email']}:" />
+				<h:inputText id="emailInput" value="#{usuarioBean.usuario.email}" />
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>
 			<h:outputLabel for="senhaInput"	value="#{msg['page.usuarios.label.senha']}:" />
 			<h:inputSecret id="senhaInput" value="#{usuarioBean.usuario.senha}" required="true">
 				  <f:validateLength minimum="6" maximum="10"/> 
 			</h:inputSecret>
+			</h:panelGroup>
 		</h:panelGrid>
 		<hr />
 		<h:commandButton action="#{usuarioBean.salvar}"	value="#{msg['salvar']}" />

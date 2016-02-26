@@ -21,15 +21,23 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="#{msg['usuario.nome']}"></h:outputText>
+					<h:outputText value="#{msg['usuario.nome']}"/>
 				</f:facet>
 				<h:outputText value="#{usuario.nome}"/>
 			</h:column>
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="#{msg['usuario.email']}"></h:outputText>
+					<h:outputText value="#{msg['usuario.email']}"/>
 				</f:facet>
 				<h:outputText value="#{usuario.email}"/>
+			</h:column>
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{msg['usuario.cep']}"/>
+				</f:facet>
+				<h:outputText value="#{usuario.cep}">
+					<f:converter converterId="cep.converter"/>
+				</h:outputText>
 			</h:column>
 			<h:column>
 				<f:facet name="header">

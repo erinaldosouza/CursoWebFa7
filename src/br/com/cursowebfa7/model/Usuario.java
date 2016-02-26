@@ -8,13 +8,15 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private Date dataNascimento;
+	private Cep cep;
 	
-	public Usuario(String cpf, String senha, String nome, String email, Date dataNascimento) {
+	public Usuario(String cpf, String senha, String nome, String email, Date dataNascimento, Cep cep) {
 		this.cpf = cpf;
 		this.senha = senha;
 		this.nome = nome;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
+		this.cep = cep;
 	}
 
 	public Usuario() {
@@ -62,5 +64,13 @@ public class Usuario {
 	
 	public String getDadosAcesso() {
 		return cpf+senha;
+	}
+
+	public Cep getCep() {
+		return cep;
+	}
+
+	public void setCep(Cep cep) {
+		this.cep = cep;
 	}
 }
