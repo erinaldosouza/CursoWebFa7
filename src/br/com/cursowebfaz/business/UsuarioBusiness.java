@@ -1,15 +1,12 @@
 package br.com.cursowebfaz.business;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 import br.com.cursowebfa7.filtro.UsuarioDao;
-import br.com.cursowebfa7.listener.AppListener;
 import br.com.cursowebfa7.model.Usuario;
 import br.com.cursowebfaz.exception.UsuarioInvalidoException;
 
@@ -55,13 +52,8 @@ public class UsuarioBusiness {
 	 * @return
 	 */
 	public List<Usuario> getLista() {
-		List<Usuario> usuarios = new ArrayList<>();
-		
-		for (Entry<String, br.com.cursowebfa7.model.Usuario> usuario : AppListener.usuariosMap.entrySet()) {
-			usuarios.add((Usuario) usuario.getValue());
-		}
-		
-		return usuarios;
+	
+		return usuarioDao.listar();
 	}
 
 	/**
@@ -70,7 +62,18 @@ public class UsuarioBusiness {
 	 * 
 	 * @param usuario
 	 */
-	public void excluir(Usuario usuario) {
-		AppListener.usuariosMap.remove(usuario.getDadosAcesso());
+	public String excluir(Usuario usuario) {
+		usuarioDao.remove(usuario);
+		return null;
+	}
+
+	/**
+	 * Insere no "banco" um novo usuário ou um usuário editado
+	 * @author erinaldo.souza
+	 *  
+	 * @param user
+	 */
+	public void salvar(Usuario user) {
+		usuarioDao.salvar(user);
 	}
 }

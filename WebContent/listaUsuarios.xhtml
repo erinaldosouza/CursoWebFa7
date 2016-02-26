@@ -33,9 +33,12 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">
-					<h:outputText value="#{msg['usuario.dataNascimento']}"></h:outputText>
+					<h:outputText value="#{msg['usuario.dataNascimento']}"/>
 				</f:facet>
-				<h:outputText value="#{usuario.dataNascimento}"/>
+				<h:outputText value="#{usuario.dataNascimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:outputText>
+				
 			</h:column>
 			<h:column>
 				<h:commandButton action="#{usuarioBean.excluir}" value="#{msg['excluir']}">
@@ -49,7 +52,7 @@
 		</h:dataTable>
 		
 		<br /> <br />
-		<h:commandButton action="#{usuarioBean.login}" value="#{msg['novo']}"/>
+		<h:commandButton action="editarUsuario?faces-redirect=true" value="#{msg['novo']}"/>
 		<h:commandButton action="index?faces-redirect=true" value="#{msg['voltar']}"/>
 	</h:form>
 

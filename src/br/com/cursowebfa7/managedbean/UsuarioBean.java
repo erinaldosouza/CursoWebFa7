@@ -53,6 +53,11 @@ public class UsuarioBean {
 		return page;
 	}
 
+	public String salvar() {
+		usuarioBusiness.salvar(usuario);
+		return "listaUsuarios";
+	}
+
 	public String excluir() {
 		usuarioBusiness.excluir(usuario);
 		return null;
