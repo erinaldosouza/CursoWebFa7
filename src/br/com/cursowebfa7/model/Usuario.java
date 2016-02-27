@@ -9,6 +9,7 @@ public class Usuario {
 	private String email;
 	private Date dataNascimento;
 	private Cep cep;
+	private String marcador;
 	
 	public Usuario(String cpf, String senha, String nome, String email, Date dataNascimento, Cep cep) {
 		this.cpf = cpf;
@@ -72,5 +73,13 @@ public class Usuario {
 
 	public void setCep(Cep cep) {
 		this.cep = cep;
+	}
+
+	public String getMarcador() {
+		return marcador;
+	}
+
+	public void setMarcador(String marcador) {
+		this.marcador = marcador;
 	}
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><h:outputText	value="#{msg['jogo']}" /></title>
+	
+	<style>
+		.bnt {
+				width:80px !important; 
+				height: 80px !important;
+			}
+	</style>
+</h:head>
+<h:body>
+	<h:form id="usuarioForm" style="border:1px">
+		<h:messages globalOnly="true" errorClass="error"/>
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+				<h:panelGrid columns="1">
+					<h:outputText value="#{msg['nome.jogadores']}" />
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h:outputLabel for="jogadorUm" value="X" />
+					<h:inputText id="jogadorUm" value="#{jogoBean.jogadorUm.nome}"/>
+	
+					<h:outputLabel for="jogadorDoid" value="O" />
+					<h:inputText id="jogadorDois" value="#{jogoBean.jogadorDois.nome}"/>
+					<h:commandButton value="#{msg['novo.jogo']}">
+						<f:ajax execute="@form" listener="#{jogoBean.iniciar}" render="jogadorVez jogadorUm jogadorDois"/>
+					</h:commandButton>
+				</h:panelGrid>
+			</h:panelGroup>
+			<h:panelGroup>
+			<h:panelGrid columns="1" id="jogadorVez">
+			<h:outputFormat value="#{msg['nome.jogador.vez']}" rendered="#{jogoBean.jogadorDaVez ne null}">
+				<f:param value="#{jogoBean.jogadorDaVez.nome}" />
+			</h:outputFormat>
+			</h:panelGrid>
+			<h:panelGrid columns="3" border="1" cellpadding="0" cellspacing="20">
+					<h:commandButton id="btn1" value="" styleClass="bnt" />
+					<h:commandButton id="btn2" value=""  styleClass="bnt"/>
+					<h:commandButton id="btn3" value="" styleClass="bnt"/>
+					<h:commandButton id="btn4" value="" styleClass="bnt"/>
+					<h:commandButton id="btn5" value="" styleClass="bnt"/>
+					<h:commandButton id="btn6" value="" styleClass="bnt"/>
+					<h:commandButton id="btn7" value="" styleClass="bnt"/>
+					<h:commandButton id="btn8" value="" styleClass="bnt"/>
+					<h:commandButton id="btn9" value="" styleClass="bnt"/>
+				</h:panelGrid>
+			</h:panelGroup>
+		</h:panelGrid>
+		<hr />
+	</h:form>
+</h:body>
+</html>
