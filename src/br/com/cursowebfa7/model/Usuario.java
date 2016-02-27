@@ -10,8 +10,10 @@ public class Usuario {
 	private Date dataNascimento;
 	private Cep cep;
 	private String marcador;
+	private String jogadas;
 	
 	public Usuario(String cpf, String senha, String nome, String email, Date dataNascimento, Cep cep) {
+		this();
 		this.cpf = cpf;
 		this.senha = senha;
 		this.nome = nome;
@@ -21,6 +23,7 @@ public class Usuario {
 	}
 
 	public Usuario() {
+		jogadas = new String();
 	}
 
 	public String getNome() {
@@ -82,4 +85,13 @@ public class Usuario {
 	public void setMarcador(String marcador) {
 		this.marcador = marcador;
 	}
+
+	public String getJogadas() {
+		return jogadas;
+	}
+
+	public void setJogadas(String jogadas) {
+		this.jogadas = jogadas;
+	}
+	
 }
