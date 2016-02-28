@@ -14,7 +14,7 @@ import br.com.cursowebfa7.model.Usuario;
 @ViewScoped
 public class JogoBean {
 
-	private Boolean btnDisabled = true;
+	private Boolean btnDisabled = Boolean.TRUE;
 	private Usuario jogadorUm = new Usuario();
 	private Usuario jogadorDois = new Usuario();
 	private Usuario jogadorDaVez;
@@ -25,14 +25,21 @@ public class JogoBean {
     
 	
 	public void iniciar() {
+		
 		jogadorUm.setMarcador("X");
 		jogadorUm.setJogadas("");
 		jogadorDois.setMarcador("O");
 		jogadorDois.setJogadas("");
 		jogadorDaVez = jogadorUm;
-		marcar = null;
+   		marcar = null;
 		btnDisabled = false;
 		isOver = false;
+		
+		if((int) Math.round(Math.random() * 2) % 2 == 0){
+			jogadorDaVez=jogadorUm;
+		} else {
+			jogadorDaVez=jogadorDois;
+		}
 	}
 
 	public void jogar(AjaxBehaviorEvent  event) { 

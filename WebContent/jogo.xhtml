@@ -15,18 +15,20 @@
 </h:head>
 <h:body>
 	<h:form id="usuarioForm" style="border:1px">
-		<h:messages globalOnly="true" errorClass="error"/>
 		<h:panelGrid columns="2">
 			<h:panelGroup>
 				<h:panelGrid columns="1">
 					<h:outputText value="#{msg['nome.jogadores']}" />
 				</h:panelGrid>
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="3">
 					<h:outputLabel for="jogadorUm" value="X" />
-					<h:inputText id="jogadorUm" value="#{jogoBean.jogadorUm.nome}"/>
+					<h:inputText id="jogadorUm" value="#{jogoBean.jogadorUm.nome}" required="true" />
+					<h:message for="jogadorUm"/>
 	
 					<h:outputLabel for="jogadorDoid" value="O" />
-					<h:inputText id="jogadorDois" value="#{jogoBean.jogadorDois.nome}"/>
+					<h:inputText id="jogadorDois" value="#{jogoBean.jogadorDois.nome}" required="true"/>
+					<h:message for="jogadorUm"/>
+					
 					<h:commandButton value="#{msg['novo.jogo']}">
 						<f:ajax execute="@form" listener="#{jogoBean.iniciar}" render="jogadorVez jogadorUm jogadorDois game"/>
 					</h:commandButton>
@@ -40,7 +42,7 @@
 			</h:panelGrid>
 				<h:panelGrid columns="3" border="1" id="game" cellpadding="0" cellspacing="20">
 					<h:commandButton id="btn1" value="#{jogoBean.marcar}" styleClass="bnt" >
-						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
+						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this" />
 					</h:commandButton>
 					
 					<h:commandButton id="btn2" value="#{jogoBean.marcar}" styleClass="bnt" >
