@@ -1,4 +1,4 @@
-package br.com.cursowebfa7.filtro;
+package br.com.cursowebfa7.dao;
 
 import java.util.ArrayList;
 import java.util.List;

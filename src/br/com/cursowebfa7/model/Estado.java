@@ -15,6 +15,9 @@ public class Estado {
 		this.sigla = sigla;
 	}
 	
+	public Estado() {
+	}
+
 	public Long getId() {
 		return id;
 	}

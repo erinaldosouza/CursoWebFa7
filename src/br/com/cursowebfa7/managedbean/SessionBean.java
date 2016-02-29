@@ -6,7 +6,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class SessionBean {
-	private Boolean isLogged;
+	private Boolean isLogged = false;
 
 	public Boolean getIsLogged() {
 		return isLogged;

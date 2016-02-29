@@ -37,9 +37,11 @@ public class JogoBean {
 	
 	public void iniciar() {
 		UIComponent[] btns = new UIComponent[]{btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9};
+		
 		for (UIComponent btn : btns) {
 			btn.getAttributes().put("disabled", false);
 		}
+		
  		jogadorUm.setMarcador("X");
 		jogadorUm.setJogadas("");
 		jogadorDois.setMarcador("O");
@@ -71,6 +73,7 @@ public class JogoBean {
 					jogadorDaVez = jogadorUm;
 				}
 			}
+		
 		} else {
 			marcar = "";
 		}

@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-import br.com.cursowebfa7.filtro.UsuarioDao;
+import br.com.cursowebfa7.dao.UsuarioDao;
 import br.com.cursowebfa7.model.Usuario;
 import br.com.cursowebfaz.exception.UsuarioInvalidoException;
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><h:outputText	value="#{msg['estado.editar']}" /></title>
+</h:head>
+<h:body>
+	<h:form id="estadoForm">
+		<h:messages globalOnly="true" errorClass="error"/>
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+				<h:outputLabel for="idInput" value="#{msg['id']}:" />
+				<h:inputText id="idInput" value="#{estadoBean.estado.id}"  readonly="#{estadoBean.estado.id ne null ? facesContext.renderResponse:''}"/>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>
+				<h:outputLabel for="nome" value="#{msg['nome']}:" />
+				<h:inputText id="nome" value="#{estadoBean.estado.nome}" readonly="#{estadoBean.estado.id ne null ? facesContext.renderResponse:''}"/>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>			
+				<h:outputLabel for="data" value="#{msg['estado.sigla']}:" />
+				<h:inputText id="data" value="#{estadoBean.estado.sigla}" >
+				</h:inputText>
+			</h:panelGroup>
+			<br/>
+		</h:panelGrid>
+		<hr />
+		<h:commandButton action="#{estadoBean.salvar}"	value="#{msg['salvar']}" />
+		<h:commandButton action="listarEstados" value="#{msg['voltar']}" immediate="true"/>
+	</h:form>
+</h:body>
+</html>
