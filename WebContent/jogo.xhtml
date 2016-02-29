@@ -41,34 +41,34 @@
 				</h:outputFormat>
 			</h:panelGrid>
 				<h:panelGrid columns="3" border="1" id="game" cellpadding="0" cellspacing="20">
-					<h:commandButton id="btn1" value="#{jogoBean.marcar}" styleClass="bnt" >
+					<h:commandButton id="btn1" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn1}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this" />
 					</h:commandButton>
 					
-					<h:commandButton id="btn2" value="#{jogoBean.marcar}" styleClass="bnt" >
+					<h:commandButton id="btn2" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn2}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
 					</h:commandButton>
 					
-					<h:commandButton id="btn3" value="#{jogoBean.marcar}" styleClass="bnt" >
+					<h:commandButton id="btn3" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn3}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
 					</h:commandButton>
-					<h:commandButton id="btn4" value="#{jogoBean.marcar}" styleClass="bnt" >
+					<h:commandButton id="btn4" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn4}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
 					</h:commandButton>
-					<h:commandButton id="btn5" value="#{jogoBean.marcar}" styleClass="bnt" >
+					<h:commandButton id="btn5" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn5}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
 					</h:commandButton>
 					
-					<h:commandButton id="btn6" value="#{jogoBean.marcar}" styleClass="bnt" >
+					<h:commandButton id="btn6" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn6}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
 					</h:commandButton>
-					<h:commandButton id="btn7" value="#{jogoBean.marcar}" styleClass="bnt" >
+					<h:commandButton id="btn7" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn7}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
 					</h:commandButton>
-						<h:commandButton id="btn8" value="#{jogoBean.marcar}" styleClass="bnt" >
+						<h:commandButton id="btn8" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn8}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
 					</h:commandButton>
-					<h:commandButton id="btn9" value="#{jogoBean.marcar}" styleClass="bnt" >
+					<h:commandButton id="btn9" value="#{jogoBean.marcar}" styleClass="bnt" binding="#{jogoBean.btn9}">
 						<f:ajax  event="click" listener="#{jogoBean.jogar}" render="jogadorVez jogadorUm jogadorDois @this"/>
 					</h:commandButton>
 				</h:panelGrid>

@@ -15,12 +15,12 @@
 		<h:panelGrid columns="2">
 			<h:panelGroup>
 				<h:outputLabel for="cpfInput" value="#{msg['cpf']}:" />
-				<h:inputText id="cpfInput" value="#{usuarioBean.usuario.cpf}"  readonly="#{facesContext.renderResponse}"/>
+				<h:inputText id="cpfInput" value="#{usuarioBean.usuario.cpf}"  readonly="#{usuarioBean.usuario.cpf ne null ? facesContext.renderResponse:''}"/>
 			</h:panelGroup>
 			<br/>
 			<h:panelGroup>
 				<h:outputLabel for="nome" value="#{msg['nome']}:" />
-				<h:inputText id="nome" value="#{usuarioBean.usuario.nome}" readonly="#{facesContext.renderResponse}"/>
+				<h:inputText id="nome" value="#{usuarioBean.usuario.nome}" readonly="#{usuarioBean.usuario.cpf ne null ? facesContext.renderResponse:''}"/>
 			</h:panelGroup>
 			<br/>
 			<h:panelGroup>			

@@ -16,8 +16,9 @@ public class CepConverter implements Converter {
 	public Object getAsObject(FacesContext contex, UIComponent arg1, String str) {
 		String cepArr[] = null;
 		try {
-			new Long(str.replaceAll("\\D", ""));
 			cepArr = str.split("-");
+			new Long(cepArr[0]);
+			new Long(cepArr[1]);
 		
 		} catch(NumberFormatException | ArrayIndexOutOfBoundsException e) {
 			FacesMessage message = 
