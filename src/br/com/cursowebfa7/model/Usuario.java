@@ -67,7 +67,7 @@ public class Usuario {
 	}	
 	
 	public String getDadosAcesso() {
-		return cpf+senha;
+		return cpf;
 	}
 
 	public Cep getCep() {

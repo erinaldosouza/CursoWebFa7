@@ -75,9 +75,9 @@ public class AppListener implements ServletContextListener {
      * 
      */
 	private void config() {
-		usuariosMap.put("123321", new Usuario("123", "321", "Usurio1", "usuario1@gmail.com", new Date(), new Cep("60351", "451")));
-		usuariosMap.put("456654", new Usuario("456", "654", "Usurio2", "usuario2@hotmail.com", new Date(), new Cep("60351", "452")));
-		usuariosMap.put("789987", new Usuario("789", "987", "Usurio3", "usuario3@gmail.com", new Date(), new Cep("60351", "452")));
+		usuariosMap.put("123", new Usuario("123", "321", "Usurio1", "usuario1@gmail.com", new Date(), new Cep("60351", "451")));
+		usuariosMap.put("456", new Usuario("456", "654", "Usurio2", "usuario2@hotmail.com", new Date(), new Cep("60351", "452")));
+		usuariosMap.put("789", new Usuario("789", "987", "Usurio3", "usuario3@gmail.com", new Date(), new Cep("60351", "452")));
 		
 		estadosMap.put(1l, new Estado(1l, "Ceará", "CE"));
 		estadosMap.put(2l, new Estado(2l, "Rio de Janeiro", "RJ"));
