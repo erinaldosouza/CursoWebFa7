@@ -1,4 +1,4 @@
-package br.com.cursowebfaz.business;
+package br.com.cursowebfa7.business;
 
 import java.util.List;
 

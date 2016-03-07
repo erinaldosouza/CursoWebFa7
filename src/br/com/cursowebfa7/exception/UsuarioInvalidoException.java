@@ -1,4 +1,4 @@
-package br.com.cursowebfaz.exception;
+package br.com.cursowebfa7.exception;
 
 public class UsuarioInvalidoException extends Exception {
 	public UsuarioInvalidoException(String msg) {

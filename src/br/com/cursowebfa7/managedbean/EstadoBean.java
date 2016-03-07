@@ -7,9 +7,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import br.com.cursowebfa7.business.EstadoBusiness;
 import br.com.cursowebfa7.model.Cidade;
 import br.com.cursowebfa7.model.Estado;
-import br.com.cursowebfaz.business.EstadoBusiness;
 
 @ManagedBean
 @RequestScoped

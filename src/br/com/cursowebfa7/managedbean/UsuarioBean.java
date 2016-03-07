@@ -8,9 +8,9 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import br.com.cursowebfa7.business.UsuarioBusiness;
+import br.com.cursowebfa7.exception.UsuarioInvalidoException;
 import br.com.cursowebfa7.model.Usuario;
-import br.com.cursowebfaz.business.UsuarioBusiness;
-import br.com.cursowebfaz.exception.UsuarioInvalidoException;
 
 @ManagedBean
 @RequestScoped

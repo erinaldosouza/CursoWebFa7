@@ -1,4 +1,4 @@
-package br.com.cursowebfaz.business;
+package br.com.cursowebfa7.business;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
 import br.com.cursowebfa7.dao.UsuarioDao;
+import br.com.cursowebfa7.exception.UsuarioInvalidoException;
 import br.com.cursowebfa7.model.Usuario;
-import br.com.cursowebfaz.exception.UsuarioInvalidoException;
 
 @ManagedBean
 @RequestScoped
