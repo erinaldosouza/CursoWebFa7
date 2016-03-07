@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><h:outputText value="#{msg['cidade.editar']}" /></title>
+</h:head>
+<h:body>
+	<f:metadata>
+		<f:viewParam name="idEstado" value="#{estadoBean.estado.id}"/>
+		<f:viewParam name="idCidade" value="#{estadoBean.cidade.id}"/>
+		
+		<f:event type="preRenderView" listener="#{estadoBean.exibirCidade}" />
+		<f:event type="preRenderView" listener="#{estadoBean.exibir}" />
+		
+	</f:metadata>
+	<h:form id="estadoForm">
+		<h:inputHidden value="#{estadoBean.cidade.id}"  disabled="true"/>
+		<h:messages globalOnly="true" errorClass="error"/>
+		<h:panelGrid columns="2">
+			<h:panelGroup>
+				<h:outputLabel for="idInput" value="#{msg['id']}:" />
+				<h:inputText id="idInput" value="#{estadoBean.cidade.id}"  disabled="true"/>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>
+				<h:outputLabel for="nome" value="#{msg['nome']}:" />
+				<h:inputText id="nome" value="#{estadoBean.cidade.nome}"/>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>			
+				<h:outputLabel for="data" value="#{msg['data.constituicao']}:" />
+				<h:inputText id="data" value="#{estadoBean.cidade.dataConstituicao}">
+					<f:convertDateTime pattern="dd-MM-yyyy">
+					</f:convertDateTime>
+				</h:inputText>
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>			
+				<h:outputLabel for="populacao" value="#{msg['populacao']}:" />
+				<h:inputText id="populacao" value="#{estadoBean.cidade.populacao}" />
+			</h:panelGroup>
+			<br/>
+			<h:panelGroup>			
+				<h:outputLabel for="pib" value="#{msg['pib']}:" />
+				<h:inputText id="pib" value="#{estadoBean.cidade.pib}" />
+			</h:panelGroup>
+			<br/>
+		</h:panelGrid>
+		
+		<hr />
+		<h:commandButton action="#{estadoBean.salvarCidade}" value="#{msg['salvar']}"/>
+		<h:commandButton action="#{estadoBean.excluirCidade}" value="#{msg['excluir']}"/>
+		<h:commandButton action="index?faces-redirect=true" value="#{msg['voltar']}"/>
+	</h:form>
+</h:body>
+</html>

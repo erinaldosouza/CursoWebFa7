@@ -12,12 +12,12 @@
 		<h:panelGrid columns="2">
 			<h:panelGroup>
 				<h:outputLabel for="idInput" value="#{msg['id']}:" />
-				<h:inputText id="idInput" value="#{estadoBean.estado.id}"  readonly="#{estadoBean.estado.id ne null ? facesContext.renderResponse:''}"/>
+				<h:inputText id="idInput" value="#{estadoBean.estado.id}"  disabled="#{estadoBean.estado.id ne null ? facesContext.renderResponse:''}"/>
 			</h:panelGroup>
 			<br/>
 			<h:panelGroup>
 				<h:outputLabel for="nome" value="#{msg['nome']}:" />
-				<h:inputText id="nome" value="#{estadoBean.estado.nome}" readonly="#{estadoBean.estado.id ne null ? facesContext.renderResponse:''}"/>
+				<h:inputText id="nome" value="#{estadoBean.estado.nome}"/>
 			</h:panelGroup>
 			<br/>
 			<h:panelGroup>			
@@ -29,65 +29,57 @@
 		</h:panelGrid>
 		<hr />
 		<h:form>
-			<h:dataTable value="#{estadoBean.lista}" var="estado" border="1" cellpadding="2" cellspacing="0">
+			<h:dataTable value="#{estadoBean.estado.cidades}" var="cidade" border="1" cellpadding="2" cellspacing="0">
 				<h:column>
 						<f:facet name="header">
 							<h:outputText  value="#{msg['id']}"/>
 						</f:facet>
-						<h:outputText value="#{estado.id}"/>
+						<h:outputText value="#{cidade.id}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="#{msg['estado.nome']}"/>
+						<h:outputText value="#{msg['nome']}"/>
 					</f:facet>
-					<h:outputText value="#{estado.nome}"/>
+					<h:outputText value="#{cidade.nome}"/>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="#{msg['data.constituicao']}"/>
 					</f:facet>
-					<h:outputText value="#{estado.dataConstituicao}"/>
+					<h:outputText value="#{cidade.dataConstituicao}">
+						<f:convertDateTime pattern="dd-MM-yyyy"/>
+					</h:outputText>
 				</h:column>
 				
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="#{msg['populacao']}"/>
 					</f:facet>
-					<h:outputText value="#{estado.populacao}"/>
+					<h:outputText value="#{cidade.populacao}"/>
 				</h:column>
 				
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="#{msg['pib']}"/>
 					</f:facet>
-					<h:outputText value="#{estado.pib}"/>
+					<h:outputText value="#{cidade.pib}"/>
 				</h:column>
-				
 				<h:column>
-					<f:facet name="header">
-						<h:outputText value="#{msg['estado.sigla']}"/>
-					</f:facet>
-					<h:outputText value="#{estado.sigla}"/>
-				</h:column>
-			
-				<h:column>
-					<h:commandButton action="#{estadoBean.editar}" value="#{msg['editar']}">
-						<f:facet name="header">
-							<h:outputText  value="#{msg['editar']}"/>
-						</f:facet>
-						<h:outputText  value=""/>
-						<f:setPropertyActionListener value="#{estado}" target="#{estadoBean.estado}"/>
-					</h:commandButton>
+				<h:button outcome="editarCidade" value="#{msg['editar']}">
+					<f:param name="idCidade" value="#{cidade.id}"/>
+					<f:param name="idEstado" value="#{estadoBean.estado.id}"/>
+				</h:button>
 				</h:column>
 			</h:dataTable>
+			<h:button outcome="editarCidade" value="#{msg['novo']}">
+				<f:param name="idEstado" value="#{estadoBean.estado.id}"/>
+			</h:button>
 			<hr/>
 			<br /> <br />
-			<h:commandButton action="editarEstado?faces-redirect=true" value="#{msg['novo']}"/>
+			<h:commandButton action="index?faces-redirect=true" value="#{msg['salvar']}"/>
+			<h:commandButton action="editarEstado?faces-redirect=true" value="#{msg['excluir']}"/>
 			<h:commandButton action="index?faces-redirect=true" value="#{msg['voltar']}"/>
 		</h:form>
-		
-		<h:commandButton action="#{estadoBean.salvar}"	value="#{msg['salvar']}" />
-		<h:commandButton action="listarEstados" value="#{msg['voltar']}" immediate="true"/>
 	</h:form>
 </h:body>
 </html>

@@ -1,6 +1,6 @@
 package br.com.cursowebfa7.model;
 
-import java.util.Date;
+import java.util.List;
 
 
 public class Estado {
@@ -8,9 +8,7 @@ public class Estado {
 	private Long id;
 	private String nome;
 	private String sigla;
-	private Date dataConstituicao;
-	private Long populacao;
-	private Double pib;
+	private List<Cidade> cidades;
 	
 	public Estado(long id, String estado, String sigla) {
 		this.id = id;
@@ -40,27 +38,11 @@ public class Estado {
 		this.sigla = sigla;
 	}
 
-	public Date getDataConstituicao() {
-		return dataConstituicao;
+	public List<Cidade> getCidades() {
+		return cidades;
 	}
 
-	public void setDataConstituicao(Date dataConstituicao) {
-		this.dataConstituicao = dataConstituicao;
-	}
-
-	public Long getPopulacao() {
-		return populacao;
-	}
-
-	public void setPopulacao(Long populacao) {
-		this.populacao = populacao;
-	}
-
-	public Double getPib() {
-		return pib;
-	}
-
-	public void setPib(Double pib) {
-		this.pib = pib;
+	public void setCidades(List<Cidade> cidades) {
+		this.cidades = cidades;
 	}
 }
