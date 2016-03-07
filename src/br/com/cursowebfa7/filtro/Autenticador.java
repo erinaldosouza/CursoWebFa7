@@ -35,6 +35,7 @@ public class Autenticador  implements Filter {
 		if(requesrUrl.endsWith("login.xhtml")
 				|| requesrUrl.endsWith("cadastroUsuario.xhtml")
 				|| requesrUrl.endsWith("jsf.js.xhtml")
+				|| requesrUrl.endsWith("editarUsuario.xhtml")
 				|| (sessionBean != null && sessionBean.getIsLogged())) {
 			chain.doFilter(request, response);
 
